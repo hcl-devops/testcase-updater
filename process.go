@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"encoding/csv"
-	"fmt"
 	"io"
 	"os"
 )
@@ -21,7 +20,7 @@ type TestCase struct {
 func ProcessCSV(csvpath string) ([]TestCase, error) {
 	var testcases []TestCase
 	if fileMode, err := os.Stat(csvpath); err == nil && !fileMode.IsDir() {
-		fmt.Printf("File is not a directory.")
+		//fmt.Printf("File is not a directory.")
 		csvFile, err := os.Open(csvpath)
 		reader := csv.NewReader(bufio.NewReader(csvFile))
 		if err != nil {
@@ -47,7 +46,7 @@ func ProcessCSV(csvpath string) ([]TestCase, error) {
 			i++
 		}
 	} else {
-		fmt.Printf("Err reading file %s\n", err)
+		//fmt.Printf("Err reading file %s\n", err)
 	}
 	return testcases, nil
 }

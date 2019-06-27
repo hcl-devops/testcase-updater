@@ -36,7 +36,7 @@ func main() {
 		fmt.Printf("Error process csv file %s, Error: %s\n", testcasecsvPath, err)
 		return
 	}
-	fmt.Printf("cases: %v\n", testcases)
+	//fmt.Printf("cases: %v\n", testcases)
 	if len(testcases) == 0 {
 		fmt.Printf("No test cases to update hence exiting\n")
 		return
