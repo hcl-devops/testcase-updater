@@ -12,6 +12,7 @@ type TestCase struct {
 	TestID     string
 	TestStepID string
 	Status     string
+	ResTime    string
 }
 
 /*
@@ -26,7 +27,7 @@ func ProcessCSV(csvpath string) ([]TestCase, error) {
 		if err != nil {
 			return nil, err
 		}
-		i := 0
+		//i := 0
 		for {
 			line, err := reader.Read()
 			if err == io.EOF {
@@ -34,16 +35,17 @@ func ProcessCSV(csvpath string) ([]TestCase, error) {
 			} else if err != nil {
 				return testcases, err
 			}
-			if i == 0 {
+			/*if i == 0 {
 				i++
 				continue
-			}
+			}*/
 			testcases = append(testcases, TestCase{
 				TestID:     line[0],
 				TestStepID: line[1],
 				Status:     line[2],
+				ResTime:    line[3],
 			})
-			i++
+			//i++
 		}
 	} else {
 		//fmt.Printf("Err reading file %s\n", err)
